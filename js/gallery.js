@@ -95,6 +95,26 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready(function() {
+  $(document).on("click", "#nextPhoto", function() {
+    swapPhoto();
+  });
+  $(document).on("click", "#prevPhoto", function() {
+    mCurrentIndex -= 2;
+
+    if (mCurrentIndex < 0) {
+      mCurrentIndex = 0;
+    }
+
+    swapPhoto();
+  });
+});
+
+// $('#nav, #nextPhoto').click(function(){
+// 		mImages += 1;
+// 		console.log('yes')
+// 	})
+
+$(document).ready(function() {
   // This initially hides the photos' metadata information
   $(".details")
     .eq(0)

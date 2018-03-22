@@ -38,16 +38,18 @@ function swapPhoto() {
   //Access the img element and replace its source
   //with a new image from your images array which is loaded
   //from the JSON string
-  console.log(mImages[0][mCurrentIndex].imgLocation);
-  $(".location").text("Location: " + mImages[0][mCurrentIndex].imgLocation);
-  $(".description").text("Description: " + mImages[0][mCurrentIndex].description);
-  $(".date").text("Date: " + mImages[0][mCurrentIndex].date);
 
-  if (mCurrentIndex > 12) {
+  if (mCurrentIndex > mImages[0].length - 1) {
     mCurrentIndex = 0;
   }
 
+  $(".location").text("Location: " + mImages[0][mCurrentIndex].imgLocation);
+  $(".description").text(
+    "Description: " + mImages[0][mCurrentIndex].description
+  );
+  $(".date").text("Date: " + mImages[0][mCurrentIndex].date);
   $("#photo").attr("src", `${mImages[0][mCurrentIndex].imgPath}`);
+
   mCurrentIndex += 1;
 }
 
@@ -56,9 +58,21 @@ var mCurrentIndex = 0;
 
 var mImages = [];
 
-// XMLHttpRequest variable
+//checks the url for the parameter and returns the value of it
+function GetURLParameter(sParam) {
+  var sPageURL = window.location.search.substring(1);
+
+  if (sPageURL == "") {
+    return "extra.json";
+  }
+
+  var url = sPageURL.split("=");
+  return url[1];
+}
+
+
 var mRequest = new XMLHttpRequest();
-var url = "images.json";
+var url = GetURLParameter("json");
 mRequest.onreadystatechange = function() {
   if (this.readyState === 4 && this.status === 200) {
     var images = JSON.parse(this.responseText);
@@ -71,7 +85,6 @@ mRequest.onreadystatechange = function() {
       mImages.push(img);
     });
 
-    console.log(mImages);
     return mImages;
   }
 };
@@ -87,7 +100,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = "insert_url_here_to_image_json";
+var mUrl = "";
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
 //@param A GalleryImage object. Use this method for an event handler for loading a gallery Image object (optional).
@@ -121,11 +134,11 @@ $(document).ready(function() {
 
   $(".moreIndicator").on("click", function() {
     if ($(this).data("clicked")) {
-      $(".rot90").toggleClass('active');
+      $(".rot90").toggleClass("active");
       $(".details").hide();
       $(this).data("clicked", false);
     } else {
-      $(".rot90").toggleClass('active');
+      $(".rot90").toggleClass("active");
       $(".details").show();
       $(this).data("clicked", true);
     }

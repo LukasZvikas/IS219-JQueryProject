@@ -38,6 +38,10 @@ function swapPhoto() {
   //Access the img element and replace its source
   //with a new image from your images array which is loaded
   //from the JSON string
+  console.log(mImages[0][mCurrentIndex].imgLocation);
+  $(".location").text("Location: " + mImages[0][mCurrentIndex].imgLocation);
+  $(".description").text("Description: " + mImages[0][mCurrentIndex].description);
+  $(".date").text("Date: " + mImages[0][mCurrentIndex].date);
 
   if (mCurrentIndex > 12) {
     mCurrentIndex = 0;
@@ -109,12 +113,23 @@ $(document).ready(function() {
   });
 });
 
-
 $(document).ready(function() {
   // This initially hides the photos' metadata information
   $(".details")
     .eq(0)
     .hide();
+
+  $(".moreIndicator").on("click", function() {
+    if ($(this).data("clicked")) {
+      $(".rot90").toggleClass('active');
+      $(".details").hide();
+      $(this).data("clicked", false);
+    } else {
+      $(".rot90").toggleClass('active');
+      $(".details").show();
+      $(this).data("clicked", true);
+    }
+  });
 });
 
 window.addEventListener(

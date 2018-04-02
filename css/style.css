@@ -31,11 +31,6 @@ body {
   top: 0px;
 }
 
-.thumbnail {
-	position: relative;
-	box-shadow: 1px 3px 20px 0px;
-	width: 100%;
-
 .moreIndicator:hover {
   height: 50px;
   width: 50px;

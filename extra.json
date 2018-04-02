@@ -1,0 +1,34 @@
+{
+    "images": [
+        {
+            "imgPath": "img/extraPlaces/vilnius.jpg",
+            "imgLocation": "Lithuania",
+            "description": "Vilnius city",
+            "date": "26/05/2016"
+        },
+        {
+            "imgPath": "img/extraPlaces/riga.jpg",
+            "imgLocation": "Riga",
+            "description": "Riga city center",
+            "date": "11/04/2016"
+        },
+        {
+            "imgPath": "img/extraPlaces/tallin.jpeg",
+            "imgLocation": "Estonia",
+            "description": "Tallin city",
+            "date": "21/06/2016"
+        },
+        {
+            "imgPath": "img/extraPlaces/helsinki.jpg",
+            "imgLocation": "Finland",
+            "description": "Helsinki during winter",
+            "date": "09/11/2016"
+        },
+        {
+            "imgPath": "img/extraPlaces/moscow.jpeg",
+            "imgLocation": "Russia",
+            "description": "Red Square, Moscow",
+            "date": "05/03/2015"
+        }
+  ]
+}

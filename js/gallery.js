@@ -131,15 +131,6 @@ $(document).ready(function() {
   });
 });
 
-// $('#nav, #nextPhoto').click(function(){
-// 		mImages += 1;
-// 		console.log('yes')
-// 	})
-
-    swapPhoto();
-  });
-});
-
 $(document).ready(function() {
   // This initially hides the photos' metadata information
   $(".details")

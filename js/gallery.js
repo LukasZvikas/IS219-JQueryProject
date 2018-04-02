@@ -39,11 +39,6 @@ function swapPhoto() {
   //with a new image from your images array which is loaded
   //from the JSON string
 
-  console.log(mImages[0][mCurrentIndex].imgLocation);
-  $(".location").text("Location: " + mImages[0][mCurrentIndex].imgLocation);
-  $(".description").text("Description: " + mImages[0][mCurrentIndex].description);
-  $(".date").text("Date: " + mImages[0][mCurrentIndex].date);
-
   if (mCurrentIndex > mImages[0].length - 1) {
     mCurrentIndex = 0;
   }
